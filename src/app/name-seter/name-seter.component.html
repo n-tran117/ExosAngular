@@ -1,0 +1,62 @@
+<hello id="hello" name="{{ name }}"></hello>
+<div id="name-seter">
+  <label for="set-box">Enter name : </label>
+  <input
+    #searchBox
+    id="set-box"
+    [ngModel]="name"
+    (ngModelChange)="setName($event)"
+  />
+</div>
+Font-Family :
+<select
+  [ngModel]="ngDropdownIndex"
+  name="dropdownOption"
+  id="dropdownOption"
+  class="form-control"
+  (ngModelChange)="setFontFamily($event)"
+>
+  <option
+    *ngFor="let font of fonts; let indexOfelement = index"
+    value="{{ indexOfelement }}"
+  >
+    {{ font }}
+  </option>
+</select>
+
+<div id="fontSize-seter">
+  <label for="fontSize-box">FontSize : </label>
+  <input
+    #searchBox
+    [ngModel]="fontSize"
+    id="fontSize-box"
+    (ngModelChange)="setFonSize($event)"
+  />
+  <div>
+    <p>{{ fontSizeError }}</p>
+  </div>
+</div>
+
+<div>
+  <input
+    name="options"
+    type="radio"
+    value="left"
+    [ngModel]="align"
+    (ngModelChange)="alignHelloBlock($event)"
+  />Left
+  <input
+    name="options"
+    type="radio"
+    value="center"
+    [ngModel]="align"
+    (ngModelChange)="alignHelloBlock($event)"
+  />Middle
+  <input
+    name="options"
+    type="radio"
+    value="right"
+    [ngModel]="align"
+    (ngModelChange)="alignHelloBlock($event)"
+  />Right
+</div>

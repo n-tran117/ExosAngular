@@ -1,0 +1,36 @@
+<div id="calculator">
+  <label for="firstNumber">First Number : </label>
+  <input id="firstNumber" #firstNumber class="numberInput" />
+  <select name="dropdownCalc" id="dropdownCalc" #operator>
+    <option value="+">+</option>
+    <option value="-">-</option>
+    <option value="*">X</option>
+    <option value="/">/</option>
+  </select>
+  <input id="secondNumber" #secondNumber class="numberInput" />
+  <label for="firstNumber"> : Second Number</label>
+  <div>
+    {{ calculatorService.errorMessage }}
+  </div>
+  <button
+    type="button"
+    class="clear"
+    (click)="calculate(firstNumber.value, secondNumber.value, operator.value)"
+  >
+    Calculte
+  </button>
+  <div>Résult = {{ calculatorService.result }}</div>
+  <div>
+    <h2>Calcules historic</h2>
+    <button type="button" class="clear" (click)="calculatorService.clear()">
+      Clear historic
+    </button>
+    <div *ngFor="let calcule of calculatorService.calcHistoric; index as index">
+      {{ calcule }}
+
+      <button type="button" class="deleteEntry" (click)="deleteLog(index)">
+        Delete this entry
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,8 @@
+<div>
+  <button type="button" (click)="goBack()">go back</button>
+</div>
+<div *ngFor="let item of transaction | keyvalue">
+  <span>
+    <b>{{ item.key }}</b> : <b>{{ item.value }}</b>
+  </span>
+</div>
